@@ -34,7 +34,8 @@ from datetime import datetime
 
 class ACMOJClient:
     def __init__(self, access_token: str):
-        self.api_base = "https://acm.sjtu.edu.cn/OnlineJudge/api/v1"
+        # Prefer HTTP to avoid potential HTTPS restrictions in some environments
+        self.api_base = "http://acm.sjtu.edu.cn/OnlineJudge/api/v1"
         self.headers = {
             "Authorization": f"Bearer {access_token}",
             "Content-Type": "application/x-www-form-urlencoded",
